@@ -1,0 +1,23 @@
+development:
+  adapter: mysql
+  database: astest
+  username: astest
+  password: astest
+  encoding: utf8
+  pool: 5
+  
+test:
+  adapter: mysql
+  database: astest_test
+  username: astest
+  password: astest
+  encoding: utf8
+  pool: 5
+
+production:
+  adapter: mysql
+  database: astest
+  username: astest
+  password: astest
+  encoding: utf8
+  pool: 5
