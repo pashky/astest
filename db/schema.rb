@@ -10,13 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930175618) do
+ActiveRecord::Schema.define(:version => 20110930185433) do
 
   create_table "airports", :force => true do |t|
     t.string   "name"
     t.string   "code"
     t.decimal  "latitude",   :precision => 9, :scale => 6
     t.decimal  "longitude",  :precision => 9, :scale => 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "flights", :force => true do |t|
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.date     "depart_date"
+    t.date     "return_date"
+    t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
