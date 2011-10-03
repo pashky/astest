@@ -1,5 +1,6 @@
 Astest::Application.routes.draw do
   match 'search', :to => 'flight_search#search'
+  match 'airports', :to => 'airports#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
