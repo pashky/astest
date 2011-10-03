@@ -1,6 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
 require 'csv'
 airports = {}
 CSV.read(File.dirname(__FILE__) + "/airports.csv").map { |ap|
@@ -12,7 +9,7 @@ CSV.read(File.dirname(__FILE__) + "/airports.csv").map { |ap|
 }.each {|a| airports[a[:code]] = a unless a[:code].nil? }
 
 puts "Creating airports"
-airport_ids = Airport.create(airports.values[0..4000]).map { |a| a.id }
+airport_ids = Airport.create(airports.values[0..400]).map { |a| a.id }
 
 ##########################
 

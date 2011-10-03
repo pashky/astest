@@ -7,9 +7,8 @@ class CreateFlights < ActiveRecord::Migration
       t.date :depart_date, :null => false
       t.date :return_date, :null => false
       t.integer :value, :null => false
-
-      t.index :origin_id, :depart_date
-      t.index :destination_id
     end
+    add_index :flights, [:origin_id, :depart_date]
+    add_index :flights, :destination_id
   end
 end

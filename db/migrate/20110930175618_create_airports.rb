@@ -6,9 +6,8 @@ class CreateAirports < ActiveRecord::Migration
       t.string :code, :null => false, :unique => true
       t.decimal :latitude, :precision => 9, :scale => 6, :null => false
       t.decimal :longitude, :precision => 9, :scale => 6, :null => false
-
-      t.index :name
-      t.index :code
     end
+    add_index :airports, :name
+    add_index :airports, :code
   end
 end

@@ -13,22 +13,24 @@
 ActiveRecord::Schema.define(:version => 20110930185433) do
 
   create_table "airports", :force => true do |t|
-    t.string   "name"
-    t.string   "code"
-    t.decimal  "latitude",   :precision => 9, :scale => 6
-    t.decimal  "longitude",  :precision => 9, :scale => 6
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "name",                                    :null => false
+    t.string  "code",                                    :null => false
+    t.decimal "latitude",  :precision => 9, :scale => 6, :null => false
+    t.decimal "longitude", :precision => 9, :scale => 6, :null => false
   end
 
+  add_index "airports", ["code"], :name => "index_airports_on_code"
+  add_index "airports", ["name"], :name => "index_airports_on_name"
+
   create_table "flights", :force => true do |t|
-    t.integer  "origin_id"
-    t.integer  "destination_id"
-    t.date     "depart_date"
-    t.date     "return_date"
-    t.integer  "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "origin_id",      :null => false
+    t.integer "destination_id", :null => false
+    t.date    "depart_date",    :null => false
+    t.date    "return_date",    :null => false
+    t.integer "value",          :null => false
   end
+
+  add_index "flights", ["destination_id"], :name => "index_flights_on_destination_id"
+  add_index "flights", ["origin_id", "depart_date"], :name => "index_flights_on_origin_id_and_depart_date"
 
 end
